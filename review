@@ -1,0 +1,57 @@
+<!Doctype html>
+<html>
+<head>
+	<meta charset="UTF-8"/>
+	<title>
+		How strong is your password?
+	</title>
+	<style>
+		body{
+			font-family:tahoma;
+			font-size:14pt;
+		}
+		h1{
+			font-size:20pt;
+		}
+	</style>
+	<script>
+		function passwordChecker(){
+			var points=0;
+			var password=document.getElementById("txtPassword").value;
+			var txt;
+			if(password.length>12){
+				points+= 2
+				txt = "Your password scored " + points + " out of 6";
+			}else if(password.length>8){
+				points +=1
+				txt = "Your password scored " + points + " out of 6";
+			}else{
+				txt = "Your password scored " + points + " out of 6";
+			}
+			var lowerCaseFound = false;
+				for(var i=0;i<password.length-1;i++){
+					if(password.charAt(i)>= 'a'&& password.charAt(i)<='z'){
+					lowerCaseFound = true;
+					}
+				}
+			document.getElementById("score").innerHTML = txt;
+			}
+			
+			
+			
+			
+			
+	</script>
+</head>
+
+<body>
+	<h1>Password Strength Checker</h1>
+	<p>Enter password:
+	<input type="password" id="txtPassword" placeholder="Enter password here"/>
+	<button onclick="passwordChecker()">Check strength</button></p>
+	
+	<p><span id="score"></span></p>
+	
+	
+</body>
+</html>
